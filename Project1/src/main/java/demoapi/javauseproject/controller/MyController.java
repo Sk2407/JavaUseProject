@@ -13,11 +13,12 @@ public class MyController {
 
     @Autowired
    private ServiceInterface serviceInterface;
-
+/*
     @GetMapping("/find")
     public String getValue(){
         return "hello sachin ";
     }
+    */
 
     @GetMapping("/getdata")
     public List<Developer> getDeveloper(){
