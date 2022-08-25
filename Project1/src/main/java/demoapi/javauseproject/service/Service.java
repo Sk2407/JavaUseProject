@@ -5,11 +5,7 @@ import demoapi.javauseproject.dao.Dao;
 import demoapi.javauseproject.entity.Developer;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @org.springframework.stereotype.Service
 public class Service implements ServiceInterface {
@@ -40,6 +36,16 @@ public class Service implements ServiceInterface {
             j++;
         }
         return returnList;
+    }
+
+    @Override
+    public Optional<Developer> getInfoOfOneEmployee(int id) {
+          return var.findById(id);
+    }
+
+    @Override
+    public void updateEmployeeData(Developer developer) {
+              var.save(developer);
     }
 
 

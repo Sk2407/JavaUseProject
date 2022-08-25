@@ -1,13 +1,15 @@
 package demoapi.javauseproject.controller;
 
+
 import demoapi.javauseproject.entity.Developer;
 import demoapi.javauseproject.service.ServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class MyController {
@@ -20,6 +22,10 @@ public class MyController {
         return "hello sachin ";
     }
     */
+    @GetMapping("/getdata/{id}")
+    public Optional<Developer> getInfoOfOneEmployee(@PathVariable int id){
+        return serviceInterface.getInfoOfOneEmployee(id);
+    }
 
     @GetMapping("/getdata")
     public List<Developer> getDeveloper(){
@@ -29,5 +35,10 @@ public class MyController {
     public HashSet<Developer> addData(@RequestBody Developer[] developer) {
         return (HashSet<Developer>)  serviceInterface.addData(developer);
     }
+    @PutMapping("getupdate/{id}")
+    public void updateEmployeeData(@RequestBody Developer developer){
+         serviceInterface.updateEmployeeData(developer);
+    }
+
 
 }
