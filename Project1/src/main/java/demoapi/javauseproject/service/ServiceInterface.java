@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ServiceInterface {
     List<Developer> getDeveloper();
+    Developer addData(Developer developer);
 }
