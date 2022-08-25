@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
 
 @RestController
@@ -25,8 +26,8 @@ public class MyController {
         return serviceInterface.getDeveloper();
     }
     @PostMapping("/insert")
-    public Developer addData(@RequestBody Developer developer) {
-        return serviceInterface.addData(developer);
+    public HashSet<Developer> addData(@RequestBody Developer[] developer) {
+        return (HashSet<Developer>)  serviceInterface.addData(developer);
     }
 
 }
